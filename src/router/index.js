@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 const Home = () => import('../pages/Home/index.vue');
-const About = () => import('../pages/About/index.vue');
 
 export const routes = [
   {
@@ -9,11 +8,7 @@ export const routes = [
     name: 'Home',
     component: Home,
   },
-  {
-    path: '/about',
-    name: 'About',
-    component: About,
-  },
+
   {
     path: '/:pathMatch(.*)*',
     redirect: { name: 'Home' },
