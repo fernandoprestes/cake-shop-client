@@ -6,8 +6,25 @@
   const { fetchCakes, fetchCakesQuery } = useFetchCakes();
 
   const cakes = ref(null);
-  const selectedOption = ref('todos');
-  const filterOptions = ['todos', 'chocolate', 'especial', 'simples'];
+  const selectedOption = ref('');
+  const filterOptions = ref([
+    {
+      value: '',
+      label: 'todos',
+    },
+    {
+      value: 'category=chocolate',
+      label: 'chocolate',
+    },
+    {
+      value: 'category=simples',
+      label: 'simples',
+    },
+    {
+      value: 'category=especial',
+      label: 'especial',
+    },
+  ]);
   const search = ref(null);
 
   async function initFetch() {
@@ -16,12 +33,8 @@
   }
 
   watch(selectedOption, async () => {
-    if (!selectedOption.value) return;
-    if (selectedOption.value === 'todos') {
-      initFetch();
-      return;
-    }
-    const { data } = await fetchCakesQuery(`category=${selectedOption.value}`);
+    if (selectedOption.value === null) return;
+    const { data } = await fetchCakesQuery(`${selectedOption.value}`);
     cakes.value = data;
   });
 
@@ -52,19 +65,19 @@
         <label
           v-for="(item, index) in filterOptions"
           :key="index"
-          :for="item"
+          :for="item.label"
           class="flex h-8 cursor-pointer items-center justify-center rounded-lg border bg-slate-300 px-1 text-sm capitalize leading-6 hover:font-bold"
-          :class="{ ' border-slate-800 font-bold': selectedOption === item }"
+          :class="{ ' border-slate-800 font-bold': selectedOption === item.value }"
         >
           <input
-            :id="item"
+            :id="item.label"
             v-model="selectedOption"
             type="radio"
-            :name="item"
-            :value="item"
+            :name="item.label"
+            :value="item.value"
             class="sr-only"
           />
-          {{ item }}
+          {{ item.label }}
         </label>
       </div>
     </aside>
