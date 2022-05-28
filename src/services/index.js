@@ -8,6 +8,11 @@ export class Api {
     return response.data;
   }
 
+  static async getBy(id) {
+    const response = await axios.get(`${urlApi}/cakes/${id}`);
+    return response.data;
+  }
+
   static async filterBy(query) {
     console.log('query', query);
     const response = await axios.get(`${urlApi}/cakes?${query}`);
