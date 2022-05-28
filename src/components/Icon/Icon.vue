@@ -6,9 +6,10 @@
 </template>
 <script>
   import ShoppingCart from './ShoppingCart.vue';
+  import Close from './Close.vue';
 
   export default {
-    components: { ShoppingCart },
+    components: { ShoppingCart, Close },
     props: {
       name: {
         type: String,

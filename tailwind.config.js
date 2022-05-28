@@ -5,7 +5,9 @@ module.exports = {
       center: true,
     },
     extend: {
-      colors: {},
+      colors: {
+        overlay: 'rgba(0, 0, 0, 0.5)',
+      },
     },
   },
   plugins: [],

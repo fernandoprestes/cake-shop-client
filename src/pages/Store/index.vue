@@ -2,6 +2,7 @@
   import { onMounted, ref, watch } from 'vue';
   import useFetchCakes from '@/composables/useFetchCakes.js';
   import Icon from '@/components/Icon/Icon.vue';
+  import CardsList from './CardsList.vue';
 
   const { fetchCakes, fetchCakesQuery } = useFetchCakes();
 
@@ -97,36 +98,7 @@
         </button>
       </div>
 
-      <div class="flex flex-wrap justify-center gap-4 md:justify-between lg:justify-start">
-        <div
-          v-for="(item, index) in cakes"
-          :key="index"
-          class="w-[194px] rounded-lg border border-slate-200 sm:w-[186px] md:w-52"
-        >
-          <div class="h-28">
-            <img
-              class="h-full w-full rounded-tr-lg rounded-tl-lg"
-              src="https://img.freepik.com/fotos-gratis/bolo-de-chocolate-com-granulado-de-chocolate_144627-8998.jpg?w=2000"
-              alt=""
-            />
-            <div class="relative">
-              <div
-                class="absolute right-2 bottom-1 rounded-lg border border-white bg-slate-600 px-2 text-sm text-white ring-2 ring-slate-600"
-              >
-                {{ item.category }}
-              </div>
-            </div>
-          </div>
-
-          <div class="rounded-br-lg rounded-bl-lg bg-slate-500 px-4 py-2">
-            <h2 class="text-slate-50">{{ item.name }}</h2>
-            <p class="truncate text-sm text-slate-50">
-              {{ item.description }}
-            </p>
-            <p class="text-right text-slate-50">{{ item.price }}</p>
-          </div>
-        </div>
-      </div>
+      <CardsList :cakes="cakes" />
     </div>
   </main>
 </template>
