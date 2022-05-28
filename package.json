@@ -1,5 +1,5 @@
 {
-  "name": "boilerplate-vue3-js",
+  "name": "cake-shop-client",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -11,22 +11,22 @@
   "dependencies": {
     "axios": "^0.27.2",
     "tailwindcss": "^3.0.24",
-    "vue": "^3.2.33",
-    "vue-router": "^4.0.14"
+    "vue": "^3.2.36",
+    "vue-router": "^4.0.15"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.3.1",
-    "@volar-plugins/prettier": "latest",
-    "@volar-plugins/prettyhtml": "latest",
-    "autoprefixer": "^10.4.5",
-    "eslint": "^8.14.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@volar-plugins/prettier": "1.1.4",
+    "@volar-plugins/prettyhtml": "1.0.0",
+    "autoprefixer": "^10.4.7",
+    "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-html": "^6.2.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.7.1",
-    "postcss": "^8.4.12",
+    "eslint-plugin-vue": "^9.0.1",
+    "postcss": "^8.4.14",
     "prettier": "^2.6.2",
-    "prettier-plugin-tailwindcss": "^0.1.10",
-    "vite": "^2.9.6"
+    "prettier-plugin-tailwindcss": "^0.1.11",
+    "vite": "^2.9.9"
   }
 }
