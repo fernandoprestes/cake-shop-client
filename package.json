@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.1",
+    "@volar-plugins/prettier": "latest",
+    "@volar-plugins/prettyhtml": "latest",
     "autoprefixer": "^10.4.5",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
