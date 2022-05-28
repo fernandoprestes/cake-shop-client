@@ -5,10 +5,10 @@
   />
 </template>
 <script>
-  import Github from './Github.vue';
+  import ShoppingCart from './ShoppingCart.vue';
 
   export default {
-    components: { Github },
+    components: { ShoppingCart },
     props: {
       name: {
         type: String,
