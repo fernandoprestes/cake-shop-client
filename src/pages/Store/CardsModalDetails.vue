@@ -7,20 +7,16 @@
   const { fetchCakeBy } = useFetchCakes();
 
   const props = defineProps({
-    isActive: {
-      type: Boolean,
-    },
-    id: {
-      type: Number,
-      default: null,
-    },
+    isActive: Boolean,
+    id: Number,
   });
   const emits = defineEmits(['close-modal']);
 
   const idd = toRef(props, 'id');
-  const cake = ref(null);
+  const cake = ref({});
 
   watch(idd, async () => {
+    if (!idd.value) return;
     const data = await fetchCakeBy(idd.value);
     cake.value = data;
   });
@@ -49,7 +45,7 @@
         <div>
           <div>
             <img
-              src="https://img.freepik.com/fotos-gratis/bolo-de-chocolate-com-granulado-de-chocolate_144627-8998.jpg?w=2000"
+              :src="cake.imageUrl"
               alt=""
             />
             <div class="mb-6 flex flex-col gap-4">

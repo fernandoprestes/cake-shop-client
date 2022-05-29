@@ -33,7 +33,7 @@
       <div class="h-28">
         <img
           class="h-full w-full rounded-tr-lg rounded-tl-lg"
-          src="https://img.freepik.com/fotos-gratis/bolo-de-chocolate-com-granulado-de-chocolate_144627-8998.jpg?w=2000"
+          :src="item.imageUrl"
           alt=""
         />
         <div class="relative">
