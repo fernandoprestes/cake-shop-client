@@ -1,13 +1,23 @@
 <script setup>
-  import { ref } from 'vue';
+  import { onMounted, ref } from 'vue';
   import CardsModalDetails from './CardsModalDetails.vue';
   import formatCurrency from '@/composables/useFormatCurrency';
+  import useFetchCakes from '../../composables/useFetchCakes';
+  import { useCakesStore } from '../../store/cakes';
+  import { storeToRefs } from 'pinia';
 
-  const props = defineProps({
-    cakes: {
-      type: Object,
-      default: null,
-    },
+  const { fetchCakes } = useFetchCakes();
+
+  const store = useCakesStore();
+  const { cakesList } = storeToRefs(store);
+
+  async function initFetch() {
+    const { data } = await fetchCakes();
+    cakesList.value = data;
+  }
+
+  onMounted(async () => {
+    await initFetch();
   });
 
   const activeModal = ref(false);
@@ -25,7 +35,7 @@
 <template>
   <div class="flex flex-wrap justify-center gap-4 md:justify-between lg:justify-start">
     <div
-      v-for="(item, index) in props.cakes"
+      v-for="(item, index) in cakesList"
       :key="index"
       class="w-[194px] cursor-pointer select-none rounded-lg border border-slate-200 hover:border-slate-600 sm:w-[186px] md:w-52"
       @click="openModal(item.id)"
