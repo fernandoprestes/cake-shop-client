@@ -1,9 +1,9 @@
 <script setup>
-  import { ref } from 'vue';
-  import Icon from '@/components/Icon/Icon.vue';
   import CardsList from './CardsList.vue';
   import FilterCategory from '@/components/FilterCategory.vue';
+  import HeaderStore from '@/components/HeaderStore.vue';
   import SearchCakesByName from '@/components/SearchCakesByName.vue';
+  import { ref } from 'vue';
 
   const filterReset = ref('');
   const clearFilter = toClear => {
@@ -13,10 +13,7 @@
 <template>
   <header class="h-20">
     <div class="container flex h-full items-center justify-between px-2">
-      <h2>Logos</h2>
-      <div>
-        <Icon name="ShoppingCart" />
-      </div>
+      <HeaderStore />
     </div>
   </header>
   <main class="container flex w-full flex-col gap-4 py-4 px-4 md:flex-row md:py-10">
