@@ -3,8 +3,11 @@
   import useFetchCakes from '@/composables/useFetchCakes';
   import formatCurrency from '@/composables/useFormatCurrency';
   import Icon from '@/components/Icon/Icon.vue';
+  import { useCardStore } from '../../store/card';
 
   const { fetchCakeBy } = useFetchCakes();
+
+  const store = useCardStore();
 
   const props = defineProps({
     isActive: Boolean,
@@ -22,6 +25,7 @@
   });
 
   const handleClick = () => {
+    store.ADD_CARD_LIST(cake.value);
     emits('close-modal', false);
   };
 </script>
