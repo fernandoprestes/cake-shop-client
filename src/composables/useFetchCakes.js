@@ -22,7 +22,6 @@ export default function useFetchCakes() {
   const fetchCakeBy = async id => {
     try {
       const response = await Api.getBy(id);
-      console.log('res', response);
       return response;
     } catch (e) {
       return e;

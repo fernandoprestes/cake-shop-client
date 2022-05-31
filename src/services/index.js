@@ -14,7 +14,6 @@ export class Api {
   }
 
   static async filterBy(query) {
-    console.log('query', query);
     const response = await axios.get(`${urlApi}/cakes?${query}`);
     return response.data;
   }
