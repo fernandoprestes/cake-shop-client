@@ -32,6 +32,7 @@ Repositório `client` do projeto cake-shop. Repositório foi gerado através do 
   - `Store`: Pagina com o menu de compras `("/store")`
 - `router`: Rotas das pages
 - `services`: Conexão com a API
+- `store`: Store Pinia, objetos com o estado da aplicação
 - `tailwind.config.js`: Configurações do tailwind
 - `vite.config.js`: Configurações do vite
 
