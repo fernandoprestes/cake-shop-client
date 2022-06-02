@@ -2,22 +2,14 @@
   import { onMounted, ref } from 'vue';
   import CardsModalDetails from './CardsModalDetails.vue';
   import formatCurrency from '@/composables/useFormatCurrency';
-  import useFetchCakes from '../../composables/useFetchCakes';
   import { useCakesStore } from '../../store/cakes';
   import { storeToRefs } from 'pinia';
 
-  const { fetchAllCakes } = useFetchCakes();
-
   const store = useCakesStore();
-  const { cakesList } = storeToRefs(store);
-
-  async function initFetch() {
-    const { data } = await fetchAllCakes();
-    cakesList.value = data;
-  }
+  const { cakes } = storeToRefs(store);
 
   onMounted(async () => {
-    await initFetch();
+    await store.getCakes();
   });
 
   const activeModal = ref(false);
@@ -35,32 +27,32 @@
 <template>
   <div class="flex flex-wrap justify-center gap-4 md:justify-between lg:justify-start">
     <div
-      v-for="(item, index) in cakesList"
+      v-for="(cake, index) in cakes"
       :key="index"
       class="w-[194px] cursor-pointer select-none rounded-lg border border-slate-200 hover:border-slate-600 sm:w-[186px] md:w-52"
-      @click="openModal(item.id)"
+      @click="openModal(cake.id)"
     >
       <div class="h-28">
         <img
           class="h-full w-full rounded-tr-lg rounded-tl-lg"
-          :src="item.imageUrl"
+          :src="cake.imageUrl"
           alt=""
         />
         <div class="relative">
           <div
             class="absolute right-2 bottom-1 rounded-lg border border-white bg-slate-600 px-2 text-sm text-white ring-2 ring-slate-600"
           >
-            {{ item.category }}
+            {{ cake.category }}
           </div>
         </div>
       </div>
 
       <div class="rounded-br-lg rounded-bl-lg bg-slate-500 px-4 py-2">
-        <h2 class="text-slate-50">{{ item.name }}</h2>
+        <h2 class="text-slate-50">{{ cake.name }}</h2>
         <p class="truncate text-sm text-slate-50">
-          {{ item.description }}
+          {{ cake.description }}
         </p>
-        <p class="text-right text-slate-50">{{ formatCurrency(item.price) }}</p>
+        <p class="text-right text-slate-50">{{ formatCurrency(cake.price) }}</p>
       </div>
     </div>
 

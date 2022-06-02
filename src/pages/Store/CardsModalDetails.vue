@@ -1,13 +1,12 @@
 <script setup>
   import { ref, toRef, watch } from 'vue';
-  import useFetchCakes from '@/composables/useFetchCakes';
   import formatCurrency from '@/composables/useFormatCurrency';
   import Icon from '@/components/Icon/Icon.vue';
-  import { useCardStore } from '../../store/card';
+  import { useCartStore } from '../../store/cart';
+  import { useCakesStore } from '../../store/cakes';
 
-  const { fetchOneCakeBy } = useFetchCakes();
-
-  const store = useCardStore();
+  const store = useCartStore();
+  const storeCakes = useCakesStore();
 
   const props = defineProps({
     isActive: Boolean,
@@ -18,14 +17,16 @@
   const idd = toRef(props, 'id');
   const cake = ref({});
 
+  //buscar na propria store nao precisa ir no banco
   watch(idd, async () => {
     if (!idd.value) return;
-    const data = await fetchOneCakeBy(idd.value);
-    cake.value = data;
+    // const data = await fetchOneCakeBy(idd.value);
+    // cake.value = data;
+    cake.value = storeCakes.findOneCake(idd.value);
   });
 
   const handleClick = () => {
-    store.ADD_CARD_LIST(cake.value);
+    store.addCartList(cake.value);
     emits('close-modal', false);
   };
 </script>

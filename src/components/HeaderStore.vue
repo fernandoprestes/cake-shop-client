@@ -3,10 +3,10 @@
   import formatCurrency from '@/composables/useFormatCurrency';
   import { ref } from 'vue';
   import { storeToRefs } from 'pinia';
-  import { useCardStore } from '@/store/card';
+  import { useCartStore } from '@/store/cart';
 
-  const store = useCardStore();
-  const { items, totalCardList } = storeToRefs(store);
+  const store = useCartStore();
+  const { items, totalInCartList } = storeToRefs(store);
 
   const openCardDialog = ref(false);
 
@@ -19,7 +19,7 @@
   };
 
   const handleCancelItemInCard = id => {
-    store.REMOVE_CARD_LIST(id);
+    store.removeCartList(id);
   };
 </script>
 <template>
@@ -32,7 +32,7 @@
       name="ShoppingCart"
       size="28"
     />
-    <span class="absolute -left-2 top-6 h-6 w-6 rounded-full bg-red-100 text-sm font-bold">{{ totalCardList }}</span>
+    <span class="absolute -left-2 top-6 h-6 w-6 rounded-full bg-red-100 text-sm font-bold">{{ totalInCartList }}</span>
   </button>
 
   <div
@@ -54,7 +54,7 @@
         </div>
       </div>
       <div
-        v-if="totalCardList === 0"
+        v-if="totalInCartList === 0"
         class="flex flex-col gap-4 pb-4 text-center font-semibold"
       >
         <h2>Seu carrinho esta vario!</h2>
@@ -77,7 +77,8 @@
             />
             <div>
               <h2 class="text-lg font-bold">{{ item.name }}</h2>
-              <span>{{ formatCurrency(item.price) }}</span>
+              <span>{{ formatCurrency(item.price * item.quantity) }}</span>
+              <p>{{ item.quantity }}</p>
             </div>
 
             <div
@@ -88,6 +89,8 @@
             </div>
           </li>
         </ul>
+        <p>{{ formatCurrency(store.totalPrice) }}</p>
+
         <button class="w-full rounded-md bg-blue-500 py-2 text-slate-50 hover:brightness-105">
           Finalizar a compra
         </button>
