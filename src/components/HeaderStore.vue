@@ -5,8 +5,8 @@
   import { storeToRefs } from 'pinia';
   import { useCartStore } from '@/store/cart';
 
-  const store = useCartStore();
-  const { items, totalInCartList } = storeToRefs(store);
+  const storeCart = useCartStore();
+  const { items, totalInCartList } = storeToRefs(storeCart);
 
   const openCardDialog = ref(false);
 
@@ -18,8 +18,16 @@
     openCardDialog.value = false;
   };
 
-  const handleCancelItemInCard = id => {
-    store.removeCartList(id);
+  const handleIncrease = idd => {
+    storeCart.incresseQuantity(idd);
+  };
+
+  const handleDecrease = (idd, quantity) => {
+    if (quantity === 1) {
+      storeCart.removeCartList(idd);
+      return;
+    }
+    storeCart.decreasesQuantity(idd);
   };
 </script>
 <template>
@@ -41,7 +49,7 @@
     @click="handleCloseCardDialog"
   >
     <div
-      class="relative right-0 top-16 w-full space-y-4 rounded-lg bg-slate-50 p-2 shadow-2xl sm:ml-auto sm:w-96"
+      class="relative right-0 top-16 ml-auto w-full max-w-lg space-y-4 rounded-lg bg-slate-50 p-2 shadow-2xl"
       @click.stop
     >
       <div class="flex items-center justify-center">
@@ -70,26 +78,39 @@
             :key="index"
             class="flex gap-2 rounded-lg bg-slate-200 p-1"
           >
-            <img
-              class="h-16 w-20 rounded-lg"
-              :src="item.imageUrl"
-              :alt="item.name"
-            />
-            <div>
-              <h2 class="text-lg font-bold">{{ item.name }}</h2>
-              <span>{{ formatCurrency(item.price * item.quantity) }}</span>
-              <p>{{ item.quantity }}</p>
+            <div class="flex gap-2">
+              <img
+                class="h-16 w-20 rounded-lg"
+                :src="item.imageUrl"
+                :alt="item.name"
+              />
+              <div>
+                <h2 class="text-lg font-bold">{{ item.name }}</h2>
+                <span>{{ formatCurrency(item.price * item.quantity) }}</span>
+              </div>
             </div>
-
-            <div
-              class="absolute right-4 cursor-pointer rounded-lg border border-red-500 px-2 hover:bg-red-200"
-              @click="handleCancelItemInCard(item.id)"
-            >
-              Cancelar
+            <div class="flex flex-auto items-center justify-end gap-2 px-6">
+              <button
+                class="flex justify-center rounded-lg border border-slate-400 px-2 text-2xl hover:bg-slate-400"
+                @click="handleIncrease(item.id)"
+              >
+                +
+              </button>
+              <span class="text-2xl">{{ item.quantity }}</span>
+              <button
+                class="flex justify-center rounded-lg border border-slate-400 px-2 text-2xl hover:bg-slate-400"
+                @click="handleDecrease(item.id, item.quantity)"
+              >
+                -
+              </button>
             </div>
           </li>
         </ul>
-        <p>{{ formatCurrency(store.totalPrice) }}</p>
+        <div class="w-full border-b border-dashed border-slate-400"></div>
+
+        <p class="text-right">
+          Total: <span class="text-2xl"> {{ formatCurrency(storeCart.totalPrice) }}</span>
+        </p>
 
         <button class="w-full rounded-md bg-blue-500 py-2 text-slate-50 hover:brightness-105">
           Finalizar a compra

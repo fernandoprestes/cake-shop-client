@@ -31,5 +31,15 @@ export const useCartStore = defineStore('cart', {
     removeCartList(idd) {
       this.cartList = this.cartList.filter(item => item.id !== idd);
     },
+
+    incresseQuantity(idd) {
+      const index = this.cartList.findIndex(item => item.id == idd);
+      this.cartList[index].quantity += 1;
+    },
+
+    decreasesQuantity(idd) {
+      const index = this.cartList.findIndex(item => item.id == idd);
+      this.cartList[index].quantity -= 1;
+    },
   },
 });
