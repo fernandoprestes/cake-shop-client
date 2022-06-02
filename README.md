@@ -1,6 +1,10 @@
-# Template de projeto Vue3
+<pre align="center">
+🚧 Working in Progress
+</pre>
 
-Este repositório serve como um template para projetos SPA com vite e vue3:
+# cake-shop-client
+
+Repositório `client` do projeto cake-shop. Repositório foi gerado através do [boilerpate-vue-js](https://github.com/fernandoprestes/boilerplate-vue3-js).
 
 ## Tecnologias
 
@@ -13,18 +17,21 @@ Este repositório serve como um template para projetos SPA com vite e vue3:
 - [Vue Router](https://router.vuejs.org/)
 - [icones.js](https://icones.js.org/)
 - [iconify](https://icon-sets.iconify.design/ic/)
+- [Pinia](https://pinia.vuejs.org/)
 
 ### Estrutura de Pastas
 
 - `.vscode`: Settings para facilitar o desenvolvimento
-- `assets/`: Recursos de css, img e scripts
+- `assets/`: Recursos de css, img
   - `img`: Upload de imagens
 - `components/`: Componentes da aplicação
   - `icon`: Componentes de icon
+- `composables`: Funções encapsuladas reutilizaveis
 - `pages/`: Paginas da aplicação
   - `Home`: Pagina principal `("/")`
-  - `About`: Pagina secundaria `("/about")`
+  - `Store`: Pagina com o menu de compras `("/store")`
 - `router`: Rotas das pages
+- `services`: Conexão com a API
 - `tailwind.config.js`: Configurações do tailwind
 - `vite.config.js`: Configurações do vite
 
