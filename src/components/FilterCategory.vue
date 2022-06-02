@@ -4,7 +4,7 @@
   import { useCakesStore } from '@/store/cakes';
   import { storeToRefs } from 'pinia';
 
-  const { fetchCakesQuery } = useFetchCakes();
+  const { fetchAllCakesBy } = useFetchCakes();
 
   const props = defineProps({
     clearFilter: String,
@@ -42,7 +42,7 @@
 
   watch(selectedOption, async () => {
     if (selectedOption.value === null) return;
-    const { data } = await fetchCakesQuery(`${selectedOption.value}`);
+    const { data } = await fetchAllCakesBy(`${selectedOption.value}`);
     cakesList.value = data;
   });
 </script>

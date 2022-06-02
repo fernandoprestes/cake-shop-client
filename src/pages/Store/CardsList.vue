@@ -6,13 +6,13 @@
   import { useCakesStore } from '../../store/cakes';
   import { storeToRefs } from 'pinia';
 
-  const { fetchCakes } = useFetchCakes();
+  const { fetchAllCakes } = useFetchCakes();
 
   const store = useCakesStore();
   const { cakesList } = storeToRefs(store);
 
   async function initFetch() {
-    const { data } = await fetchCakes();
+    const { data } = await fetchAllCakes();
     cakesList.value = data;
   }
 

@@ -5,7 +5,7 @@
   import Icon from '@/components/Icon/Icon.vue';
   import { useCardStore } from '../../store/card';
 
-  const { fetchCakeBy } = useFetchCakes();
+  const { fetchOneCakeBy } = useFetchCakes();
 
   const store = useCardStore();
 
@@ -20,7 +20,7 @@
 
   watch(idd, async () => {
     if (!idd.value) return;
-    const data = await fetchCakeBy(idd.value);
+    const data = await fetchOneCakeBy(idd.value);
     cake.value = data;
   });
 

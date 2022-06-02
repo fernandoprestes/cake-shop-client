@@ -4,7 +4,7 @@
   import useFetchCakes from '../composables/useFetchCakes';
   import { useCakesStore } from '../store/cakes';
 
-  const { fetchCakesQuery } = useFetchCakes();
+  const { fetchAllCakesBy } = useFetchCakes();
 
   const store = useCakesStore();
   const { cakesList } = storeToRefs(store);
@@ -16,7 +16,7 @@
   const handleSearchClick = async () => {
     if (!search.value) return;
     emits('clearFilterOption', null);
-    const { data } = await fetchCakesQuery(`name=${search.value}`);
+    const { data } = await fetchAllCakesBy(`name=${search.value}`);
     cakesList.value = data;
     search.value = null;
   };

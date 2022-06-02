@@ -1,7 +1,7 @@
 import { Api } from '../services/index.js';
 
 export default function useFetchCakes() {
-  const fetchCakes = async () => {
+  const fetchAllCakes = async () => {
     try {
       const response = await Api.get();
       return response;
@@ -10,7 +10,7 @@ export default function useFetchCakes() {
     }
   };
 
-  const fetchCakesQuery = async query => {
+  const fetchAllCakesBy = async query => {
     try {
       const response = await Api.filterBy(query);
       return response;
@@ -19,7 +19,7 @@ export default function useFetchCakes() {
     }
   };
 
-  const fetchCakeBy = async id => {
+  const fetchOneCakeBy = async id => {
     try {
       const response = await Api.getBy(id);
       return response;
@@ -28,5 +28,5 @@ export default function useFetchCakes() {
     }
   };
 
-  return { fetchCakes, fetchCakesQuery, fetchCakeBy };
+  return { fetchAllCakes, fetchAllCakesBy, fetchOneCakeBy };
 }
