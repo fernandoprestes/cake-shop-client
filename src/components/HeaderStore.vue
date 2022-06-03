@@ -49,7 +49,7 @@
     @click="handleCloseCardDialog"
   >
     <div
-      class="relative right-0 top-16 ml-auto w-full max-w-lg space-y-4 rounded-lg bg-slate-50 p-2 shadow-2xl"
+      class="animate__animated animate__fadeInDown relative right-0 top-16 ml-auto w-full max-w-lg space-y-4 rounded-lg bg-slate-50 p-2 shadow-2xl"
       @click.stop
     >
       <div class="flex items-center justify-center">

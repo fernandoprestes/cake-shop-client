@@ -38,7 +38,7 @@
       @click="emits('update:modelValue', false)"
     >
       <div
-        class="relative mx-10 flex w-full flex-col rounded-lg bg-white p-4 md:w-[524px]"
+        class="animate__animated animate__fadeIn relative mx-10 flex w-full flex-col rounded-lg bg-white p-4 md:w-[524px]"
         @click.stop
       >
         <div
