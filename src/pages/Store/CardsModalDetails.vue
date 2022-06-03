@@ -9,10 +9,10 @@
   const storeCakes = useCakesStore();
 
   const props = defineProps({
-    isActive: Boolean,
+    modelValue: Boolean,
     id: Number,
   });
-  const emits = defineEmits(['close-modal']);
+  const emits = defineEmits(['update:modelValue']);
 
   const idd = toRef(props, 'id');
   const cake = ref({});
@@ -27,15 +27,15 @@
 
   const handleClick = () => {
     store.addCartList(cake.value);
-    emits('close-modal', false);
+    emits('update:modelValue', false);
   };
 </script>
 <template>
   <teleport to="body">
     <div
-      v-if="props.isActive"
+      v-if="props.modelValue"
       class="absolute top-0 flex h-full w-full items-center justify-center bg-overlay"
-      @click="emits('close-modal', false)"
+      @click="emits('update:modelValue', false)"
     >
       <div
         class="relative mx-10 flex w-full flex-col rounded-lg bg-white p-4 md:w-[524px]"
@@ -43,7 +43,7 @@
       >
         <div
           class="absolute -right-4 -top-4 cursor-pointer rounded-full border border-white bg-white p-2 ring-1 ring-slate-900 hover:bg-slate-900"
-          @click="emits('close-modal', false)"
+          @click="emits('update:modelValue', false)"
         >
           <Icon name="close" />
         </div>
@@ -51,7 +51,7 @@
           <div>
             <img
               :src="cake.imageUrl"
-              alt=""
+              :alt="cake.name"
             />
             <div class="mb-6 flex flex-col gap-4">
               <h2 class="text-3xl">{{ cake.name }}</h2>

@@ -12,16 +12,12 @@
     await store.getCakes();
   });
 
-  const activeModal = ref(false);
+  const isActive = ref(false);
   const idModal = ref(null);
 
   const openModal = id => {
     idModal.value = id;
-    activeModal.value = true;
-  };
-  const onCloseModal = status => {
-    activeModal.value = status;
-    idModal.value = null;
+    isActive.value = true;
   };
 </script>
 <template>
@@ -58,8 +54,7 @@
 
     <CardsModalDetails
       :id="idModal"
-      :is-active="activeModal"
-      @close-modal="onCloseModal"
+      v-model="isActive"
     />
   </div>
 </template>
