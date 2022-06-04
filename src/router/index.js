@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 const Home = () => import('../pages/Home/index.vue');
 const Store = () => import('../pages/Store/index.vue');
+const Payment = () => import('../pages/Payment/index.vue');
 
 export const routes = [
   {
@@ -14,7 +15,11 @@ export const routes = [
     name: 'Store',
     component: Store,
   },
-
+  {
+    path: '/payment',
+    name: 'Payment',
+    component: Payment,
+  },
   {
     path: '/:pathMatch(.*)*',
     redirect: { name: 'Home' },

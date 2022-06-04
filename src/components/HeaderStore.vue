@@ -112,9 +112,14 @@
           Total: <span class="text-2xl"> {{ formatCurrency(storeCart.totalPrice) }}</span>
         </p>
 
-        <button class="w-full rounded-md bg-blue-500 py-2 text-slate-50 hover:brightness-105">
-          Finalizar a compra
-        </button>
+        <div class="flex w-full justify-center">
+          <router-link
+            to="payment"
+            class="mb-2 rounded-md bg-blue-500 py-2 px-4 text-slate-50 hover:brightness-105"
+          >
+            Finalizar a compra
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
