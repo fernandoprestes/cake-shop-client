@@ -4,13 +4,32 @@
   import { useCartStore } from '../../store/cart';
 
   import { ref } from 'vue';
+  import Icon from '../../components/Icon/Icon.vue';
 
   const storeCart = useCartStore();
   const { items, totalPrice } = storeToRefs(storeCart);
 
-  const deliveryOption = ['retirada', 'entrega'];
+  const deliveryOption = [
+    {
+      label: 'retirada',
+      icon: 'Store',
+    },
+    {
+      label: 'entrega',
+      icon: 'DeliveryDining',
+    },
+  ];
   const deliveryType = ref('retirada');
-  const paymentOption = ['dinheiro', 'cartão'];
+  const paymentOption = [
+    {
+      label: 'dinheiro',
+      icon: 'Monetization',
+    },
+    {
+      label: 'cartão',
+      icon: 'CreditCard',
+    },
+  ];
   const paymentType = ref('cartão');
 </script>
 <template>
@@ -19,8 +38,11 @@
       <h1>Logo da loja</h1>
     </div>
   </header>
-  <main class="container flex w-full flex-col items-center justify-center gap-4 py-4 px-4 md:py-10">
-    <h2 class="font-bold underline underline-offset-8">Meu pedido</h2>
+  <main class="container flex w-full flex-col items-center justify-center gap-4 py-4 px-4 text-primary md:py-10">
+    <h2 class="flex gap-2 font-bold">
+      Meu pedido
+      <Icon name="ReceiptLong" />
+    </h2>
 
     <div class="w-full md:w-[546px]">
       <div class="flex justify-between">
@@ -28,6 +50,7 @@
         <h3 class="font-mono">Preço</h3>
       </div>
       <div class="w-full border border-dashed"></div>
+
       <div
         v-for="item in items"
         :key="item.id"
@@ -43,39 +66,54 @@
       </div>
       <router-link
         to="store"
-        class="my-2 mx-auto block w-fit rounded-lg bg-blue-600 px-4 py-2 text-center text-white"
-        >Adicionar mais</router-link
+        class="my-2 mx-auto flex w-fit items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-neutral-100"
       >
+        <span> Adicionar mais </span>
+        <Icon
+          name="Plus"
+          class="text-accent"
+        />
+      </router-link>
       <div class="w-full border border-dashed"></div>
       <div class="flex justify-between font-mono">
         <h3>Total</h3>
         <span>{{ formatCurrency(totalPrice) }}</span>
       </div>
+
       <div class="w-full border border-dashed"></div>
-      <div class="flex justify-around">
+
+      <div class="mt-4 flex justify-around">
         <label
           v-for="(item, index) in deliveryOption"
           :key="index"
-          :for="item"
-          class="flex w-full cursor-pointer items-center justify-center border-b border-transparent py-2 capitalize leading-6"
-          :class="{ 'border-b border-slate-600': deliveryType === item }"
+          :for="item.label"
+          class="flex w-full cursor-pointer items-center justify-center gap-2 border-b-2 border-transparent py-2 capitalize leading-6"
+          :class="[
+            deliveryType === item.label
+              ? 'border-primary bg-secondary text-primary'
+              : 'border-secondary text-neutral-300',
+          ]"
         >
           <input
-            :id="item"
+            :id="item.label"
             v-model="deliveryType"
             type="radio"
-            :name="item"
-            :value="item"
+            :name="item.label"
+            :value="item.label"
             class="sr-only"
           />
-          {{ item }}
+          <Icon
+            :name="`${item.icon}`"
+            :class="[deliveryType === item.label ? 'text-primary' : 'text-neutral-300']"
+          />
+          {{ item.label }}
         </label>
       </div>
       <div class="flex flex-col py-2">
         <div v-if="deliveryType === 'retirada'">
-          <p>
-            Voce pode retirar o seu pedido na rua Não existe, 7458, Bairro Muito longe, SP, entre o horario das 10:00 às
-            22:00
+          <p class="text-center text-primary">
+            Você pode retirar o seu pedido em nossa loja que fica na rua Não existe, 7458, Bairro Muito longe, SP, entre
+            o horario das 10:00 às 22:00.
           </p>
         </div>
 
@@ -84,64 +122,62 @@
           class="flex flex-wrap gap-2"
         >
           <div class="flex w-full flex-col">
-            <label for="name">Endereço</label>
+            <label for="address">Endereço</label>
             <input
-              id="name"
+              id="address"
               class="rounded-lg border border-slate-400 p-1"
               placeholder="Qual o endereço para a entrega"
               type="text"
             />
           </div>
-
           <div class="flex w-full flex-wrap gap-2">
-            <div class="flex w-[49%] flex-col">
-              <label for="phone">Bairro</label>
+            <div class="flex flex-1 flex-col">
+              <label for="district">Bairro</label>
               <input
-                id="name"
+                id="district"
                 class="rounded-lg border border-slate-400 p-1"
                 placeholder="Bairro"
-                type="tel"
+                type="text"
               />
             </div>
-            <div class="flex w-[49%] flex-col">
-              <label for="phone">Numero</label>
+            <div class="flex flex-1 flex-col">
+              <label for="number">Numero</label>
               <input
-                id="name"
+                id="number"
                 class="rounded-lg border border-slate-400 p-1"
                 placeholder="Numero"
-                type="tel"
+                type="text"
               />
             </div>
             <div class="flex w-full flex-col">
-              <label for="phone">Complemento</label>
+              <label for="complement">Complemento</label>
               <input
-                id="name"
+                id="complement"
                 class="rounded-lg border border-slate-400 p-1"
                 placeholder="Complemento"
-                type="tel"
+                type="text"
               />
             </div>
           </div>
-          <div class="flex w-[49%] flex-col">
-            <label for="phone">Cidade</label>
+          <div class="flex flex-1 flex-col">
+            <label for="city">Cidade</label>
             <input
-              id="name"
+              id="city"
               class="rounded-lg border border-slate-400 p-1"
               placeholder="Cidade"
               type="tel"
             />
           </div>
-          <div class="flex w-[49%] flex-col">
-            <label for="phone">CEP</label>
+          <div class="flex flex-1 flex-col">
+            <label for="cep">CEP</label>
             <input
-              id="name"
+              id="cep"
               class="rounded-lg border border-slate-400 p-1"
               placeholder="CEP"
               type="tel"
             />
           </div>
         </div>
-
         <div class="mt-2 flex flex-col">
           <label for="name">Nome</label>
           <input
@@ -150,55 +186,79 @@
             placeholder="Como vamos te chamar"
             type="text"
           />
-          <label for="phone">Contato</label>
+          <label for="contact">Contato</label>
           <input
-            id="name"
+            id="contact"
             class="rounded-lg border border-slate-400 p-1"
             placeholder="Telefone para contato"
             type="tel"
           />
         </div>
       </div>
+
       <div class="my-4 w-full border border-dashed"></div>
+
       <div>
-        <h3>Forma de pagamento</h3>
-        <div class="flex justify-around">
+        <h3 class="font-bold">Forma de pagamento</h3>
+        <div class="mt-4 flex justify-around">
           <label
             v-for="(item, index) in paymentOption"
             :key="index"
-            :for="item"
-            class="flex w-full cursor-pointer items-center justify-center border-b border-transparent py-2 capitalize leading-6"
-            :class="{ 'border-b border-slate-600': paymentType === item }"
+            :for="item.label"
+            class="flex w-full cursor-pointer items-center justify-center gap-2 border-b-2 border-transparent py-2 capitalize leading-6"
+            :class="[
+              paymentType === item.label
+                ? 'border-primary bg-secondary text-primary'
+                : 'border-secondary text-neutral-300',
+            ]"
           >
             <input
-              :id="item"
+              :id="item.label"
               v-model="paymentType"
               type="radio"
-              :name="item"
-              :value="item"
+              :name="item.label"
+              :value="item.label"
               class="sr-only"
             />
-            {{ item }}
+            <Icon
+              :name="`${item.icon}`"
+              :class="[paymentType === item.label ? 'text-primary' : 'text-neutral-300']"
+            />
+            {{ item.label }}
           </label>
         </div>
         <div
           v-if="paymentType === 'dinheiro'"
-          class="flex flex-col"
+          class="mt-4 flex flex-col"
         >
-          <label for="phone">Troco para</label>
+          <label for="thing">Troco para</label>
           <input
-            id="name"
+            id="thing"
             class="rounded-lg border border-slate-400 p-1"
             placeholder="R$ 00.00"
-            type="tel"
+            type="text"
           />
         </div>
-        <div v-else>
-          <p>Cartões que aceitamos</p>
+        <div
+          v-else
+          class="mt-4"
+        >
+          <p class="text-center text-primary">Aceitamos cartão crédito ou débito</p>
+
+          <div class="my-4 flex items-center justify-center gap-2 text-xl">
+            <Icon name="LogosElo" />
+            <Icon name="LogosMastercard" />
+            <Icon name="LogosVisa" />
+          </div>
         </div>
       </div>
       <div class="my-4 w-full border border-dashed"></div>
-      <button class="my-2 w-fit rounded-lg bg-blue-600 px-4 py-2 text-center text-white">Fazer o pedido</button>
+      <button
+        class="my-2 flex w-fit items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-white"
+      >
+        Fazer o pedido
+        <Icon name="DoneAll" />
+      </button>
     </div>
   </main>
 </template>
