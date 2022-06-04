@@ -116,7 +116,7 @@
             :name="`${item.icon}`"
             :class="[deliveryType === item.label ? 'text-primary' : 'text-neutral-300']"
           />
-          {{ item.label }} a
+          {{ item.label }}
         </label>
       </div>
       <div class="flex flex-col py-2">
