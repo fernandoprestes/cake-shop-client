@@ -25,7 +25,7 @@
     <div
       v-for="(cake, index) in cakes"
       :key="index"
-      class="w-[194px] cursor-pointer select-none rounded-lg border border-slate-200 hover:border-slate-600 sm:w-[186px] md:w-52"
+      class="w-[194px] cursor-pointer select-none rounded-lg border border-secondary hover:border-primary sm:w-[186px] md:w-52"
       @click="openModal(cake.id)"
     >
       <div class="h-28">
@@ -36,19 +36,19 @@
         />
         <div class="relative">
           <div
-            class="absolute right-2 bottom-1 rounded-lg border border-white bg-slate-600 px-2 text-sm text-white ring-2 ring-slate-600"
+            class="absolute right-2 bottom-1 rounded-lg border border-secondary bg-accent px-2 text-sm capitalize ring-2 ring-accent"
           >
             {{ cake.category }}
           </div>
         </div>
       </div>
 
-      <div class="rounded-br-lg rounded-bl-lg bg-slate-500 px-4 py-2">
-        <h2 class="text-slate-50">{{ cake.name }}</h2>
-        <p class="truncate text-sm text-slate-50">
+      <div class="rounded-br-lg rounded-bl-lg bg-accent px-4 py-2">
+        <h2>{{ cake.name }}</h2>
+        <p class="truncate text-sm">
           {{ cake.description }}
         </p>
-        <p class="text-right text-slate-50">{{ formatCurrency(cake.price) }}</p>
+        <p class="text-right">{{ formatCurrency(cake.price) }}</p>
       </div>
     </div>
 

@@ -35,7 +35,7 @@
 <template>
   <header class="h-20">
     <div class="container flex h-full w-full items-center justify-center px-2 text-center">
-      <h1>Logo da loja</h1>
+      <router-link to="/store">Logo da loja</router-link>
     </div>
   </header>
   <main class="container flex w-full flex-col items-center justify-center gap-4 py-4 px-4 text-primary md:py-10">
@@ -49,7 +49,7 @@
         <h3 class="font-mono">Itens</h3>
         <h3 class="font-mono">Preço</h3>
       </div>
-      <div class="w-full border border-dashed"></div>
+      <div class="w-full border border-dashed border-secondary"></div>
 
       <div
         v-for="item in items"
@@ -74,13 +74,13 @@
           class="text-accent"
         />
       </router-link>
-      <div class="w-full border border-dashed"></div>
+      <div class="w-full border border-dashed border-secondary"></div>
       <div class="flex justify-between font-mono">
         <h3>Total</h3>
         <span>{{ formatCurrency(totalPrice) }}</span>
       </div>
 
-      <div class="w-full border border-dashed"></div>
+      <div class="w-full border border-dashed border-secondary"></div>
 
       <div class="mt-4 flex justify-around">
         <label
@@ -196,7 +196,7 @@
         </div>
       </div>
 
-      <div class="my-4 w-full border border-dashed"></div>
+      <div class="my-4 w-full border border-dashed border-secondary"></div>
 
       <div>
         <h3 class="font-bold">Forma de pagamento</h3>
@@ -252,7 +252,7 @@
           </div>
         </div>
       </div>
-      <div class="my-4 w-full border border-dashed"></div>
+      <div class="my-4 w-full border border-dashed border-secondary"></div>
       <button
         class="my-2 flex w-fit items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-white"
       >

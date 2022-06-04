@@ -17,7 +17,7 @@
     </div>
   </header>
   <main class="container flex w-full flex-col gap-4 py-4 px-4 md:flex-row md:py-10">
-    <aside class="w-full rounded-lg bg-slate-200 py-4 md:h-full md:w-80">
+    <aside class="w-full rounded-lg bg-secondary py-4 md:h-full md:w-80">
       <FilterCategory :clear-filter="filterReset" />
     </aside>
     <div class="flex w-full flex-col gap-2 rounded-lg">

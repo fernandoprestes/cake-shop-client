@@ -38,29 +38,33 @@
       @click="emits('update:modelValue', false)"
     >
       <div
-        class="animate__animated animate__fadeIn relative mx-10 flex w-full flex-col rounded-lg bg-white p-4 md:w-[524px]"
+        class="animate__animated animate__fadeIn relative mx-10 flex w-full flex-col rounded-lg bg-secondary p-4 md:w-[524px]"
         @click.stop
       >
         <div
-          class="absolute -right-4 -top-4 cursor-pointer rounded-full border border-white bg-white p-2 ring-1 ring-slate-900 hover:bg-slate-900"
+          class="absolute -right-4 -top-4 cursor-pointer rounded-full border border-secondary bg-primary p-2 hover:bg-accent"
           @click="emits('update:modelValue', false)"
         >
-          <Icon name="close" />
+          <Icon
+            name="close"
+            class="text-secondary"
+          />
         </div>
         <div>
           <div>
             <img
+              class="rounded-lg border-b-4 border-primary"
               :src="cake.imageUrl"
               :alt="cake.name"
             />
-            <div class="mb-6 flex flex-col gap-4">
-              <h2 class="text-3xl">{{ cake.name }}</h2>
+            <div class="mt-4 mb-6 flex flex-col gap-4 text-primary">
+              <h2 class="text-3xl font-bold">{{ cake.name }}</h2>
               <p class="text-lg">{{ cake.description }}</p>
-              <span class="text-right text-3xl">{{ formatCurrency(cake.price) }}</span>
+              <span class="text-right text-3xl font-bold">{{ formatCurrency(cake.price) }}</span>
             </div>
           </div>
           <button
-            class="w-full rounded-lg bg-slate-800 py-2 text-white"
+            class="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-white hover:brightness-105"
             @click="handleClick"
           >
             Adicionar no carrinho

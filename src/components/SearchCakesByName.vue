@@ -23,15 +23,15 @@
 </script>
 
 <template>
-  <div class="space-x-4 rounded-lg bg-slate-200 py-2 px-2">
+  <div class="flex gap-4 rounded-lg bg-secondary py-2 px-2">
     <input
       v-model="search"
       type="text"
-      class="rounded-lg px-2 py-1"
+      class="rounded-lg px-2"
       placeholder="Digite o nome de um bolo..."
     />
     <button
-      class="rounded-lg bg-slate-500 px-4 py-1"
+      class="flex w-fit items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-white hover:brightness-105"
       @click="handleSearchClick"
     >
       Buscar

@@ -47,14 +47,14 @@
   });
 </script>
 <template>
-  <h2 class="pb-4 text-center">Filtrar por:</h2>
+  <h2 class="pb-4 text-center">Buscar por uma categoria:</h2>
   <div class="flex gap-2 px-4 md:flex-col">
     <label
       v-for="(item, index) in filterOptions"
       :key="index"
       :for="item.label"
-      class="flex h-8 cursor-pointer items-center justify-center rounded-lg border bg-slate-300 px-1 text-sm capitalize leading-6 hover:font-bold"
-      :class="{ ' border-slate-800 font-bold': selectedOption === item.value }"
+      class="flex h-8 cursor-pointer items-center justify-center rounded-lg border-b-2 bg-accent px-1 text-sm capitalize leading-6 hover:brightness-105"
+      :class="{ ' border-b-4 border-primary font-bold': selectedOption === item.value }"
     >
       <input
         :id="item.label"

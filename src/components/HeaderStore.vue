@@ -49,16 +49,19 @@
     @click="handleCloseCardDialog"
   >
     <div
-      class="animate__animated animate__fadeInDown relative right-0 top-16 ml-auto w-full max-w-lg space-y-4 rounded-lg bg-slate-50 p-2 shadow-2xl"
+      class="animate__animated animate__fadeInDown relative right-0 top-16 ml-auto w-full max-w-lg space-y-4 rounded-lg bg-secondary p-2 text-primary shadow-2xl"
       @click.stop
     >
       <div class="flex items-center justify-center">
         <h2 class="text-lg font-bold">Seu carrinho</h2>
         <div
-          class="absolute right-4 cursor-pointer rounded-full bg-slate-50 p-2 hover:bg-slate-200"
+          class="absolute right-4 cursor-pointer rounded-full bg-primary p-2 hover:bg-accent"
           @click="handleCloseCardDialog"
         >
-          <Icon name="close" />
+          <Icon
+            name="close"
+            class="text-secondary"
+          />
         </div>
       </div>
       <div
@@ -76,7 +79,7 @@
           <li
             v-for="(item, index) in items"
             :key="index"
-            class="flex gap-2 rounded-lg bg-slate-200 p-1"
+            class="flex gap-2 rounded-lg border border-primary bg-secondary p-1"
           >
             <div class="flex gap-2">
               <img
@@ -91,31 +94,31 @@
             </div>
             <div class="flex flex-auto items-center justify-end gap-2 px-6">
               <button
-                class="flex justify-center rounded-lg border border-slate-400 px-2 text-2xl hover:bg-slate-400"
+                class="flex justify-center rounded-lg border border-primary px-2 text-2xl hover:bg-primary hover:text-secondary"
                 @click="handleIncrease(item.id)"
               >
-                +
+                <Icon name="Plus" />
               </button>
               <span class="text-2xl">{{ item.quantity }}</span>
               <button
-                class="flex justify-center rounded-lg border border-slate-400 px-2 text-2xl hover:bg-slate-400"
+                class="flex justify-center rounded-lg border border-primary px-2 text-2xl hover:bg-primary hover:text-secondary"
                 @click="handleDecrease(item.id, item.quantity)"
               >
-                -
+                <Icon name="Minus" />
               </button>
             </div>
           </li>
         </ul>
-        <div class="w-full border-b border-dashed border-slate-400"></div>
+        <div class="w-full border-b border-dashed border-primary"></div>
 
-        <p class="text-right">
-          Total: <span class="text-2xl"> {{ formatCurrency(storeCart.totalPrice) }}</span>
+        <p class="text-right text-primary">
+          Total: <span class="text-2xl font-bold"> {{ formatCurrency(storeCart.totalPrice) }}</span>
         </p>
 
         <div class="flex w-full justify-center">
           <router-link
             to="payment"
-            class="mb-2 rounded-md bg-blue-500 py-2 px-4 text-slate-50 hover:brightness-105"
+            class="my-2 flex w-fit items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-white hover:brightness-105"
           >
             Finalizar a compra
           </router-link>
