@@ -97,7 +97,7 @@
           v-for="(item, index) in deliveryOption"
           :key="index"
           :for="item.label"
-          class="flex w-full cursor-pointer items-center justify-center gap-2 border-b-2 border-transparent py-2 capitalize leading-6"
+          class="flex w-full cursor-pointer items-center justify-center gap-2 border-b-2 py-2 capitalize leading-6"
           :class="[
             deliveryType === item.label
               ? 'border-primary bg-secondary text-primary'
@@ -116,7 +116,7 @@
             :name="`${item.icon}`"
             :class="[deliveryType === item.label ? 'text-primary' : 'text-neutral-300']"
           />
-          {{ item.label }}
+          {{ item.label }} a
         </label>
       </div>
       <div class="flex flex-col py-2">
@@ -215,7 +215,7 @@
             v-for="(item, index) in paymentOption"
             :key="index"
             :for="item.label"
-            class="flex w-full cursor-pointer items-center justify-center gap-2 border-b-2 border-transparent py-2 capitalize leading-6"
+            class="flex w-full cursor-pointer items-center justify-center gap-2 border-b-2 py-2 capitalize leading-6"
             :class="[
               paymentType === item.label
                 ? 'border-primary bg-secondary text-primary'

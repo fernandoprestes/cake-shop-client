@@ -11,6 +11,9 @@ module.exports = {
         secondary: '#F9F1F6',
         accent: '#E7C5DA',
       },
+      screens: {
+        sx: '440px',
+      },
     },
   },
   plugins: [],

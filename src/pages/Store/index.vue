@@ -23,11 +23,11 @@
 </script>
 <template>
   <header class="h-20">
-    <div class="container flex h-full items-center justify-between px-2">
+    <div class="flex h-full items-center justify-between px-2 sm:container">
       <HeaderStore />
     </div>
   </header>
-  <main class="container flex w-full flex-col gap-4 py-4 px-4 md:flex-row md:py-10">
+  <main class="flex w-full flex-col gap-4 py-4 px-4 sm:container md:flex-row md:py-10">
     <aside class="w-full rounded-lg bg-secondary py-4 md:h-full md:w-80">
       <FilterCategory :clear-filter="filterReset" />
     </aside>

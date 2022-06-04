@@ -21,11 +21,11 @@
   };
 </script>
 <template>
-  <div class="flex flex-wrap justify-center gap-4 md:justify-between lg:justify-start">
+  <div class="flex flex-wrap justify-center gap-4 md:justify-start">
     <div
       v-for="(cake, index) in cakes"
       :key="index"
-      class="w-[194px] cursor-pointer select-none rounded-lg border border-secondary hover:border-primary sm:w-[186px] md:w-52"
+      class="w-[194px] cursor-pointer select-none rounded-lg border border-secondary hover:border-primary md:w-48"
       @click="openModal(cake.id)"
     >
       <div class="h-28">
