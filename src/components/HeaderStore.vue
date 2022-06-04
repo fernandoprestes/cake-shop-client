@@ -31,7 +31,7 @@
   };
 </script>
 <template>
-  <h2>Logos</h2>
+  <h1>Logos</h1>
   <button
     class="relative flex h-10 w-10 items-center justify-center rounded-full"
     @click="handleOpenCardDialog"

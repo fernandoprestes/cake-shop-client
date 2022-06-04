@@ -2,9 +2,19 @@
   import formatCurrency from '@/composables/useFormatCurrency';
   import { storeToRefs } from 'pinia';
   import { useCartStore } from '../../store/cart';
-
   import { ref } from 'vue';
   import Icon from '../../components/Icon/Icon.vue';
+  import { useHead } from '@vueuse/head';
+
+  useHead({
+    title: 'Bolos & Bolos | Pagamento',
+    meta: [
+      {
+        name: `description`,
+        content: 'Página para confirmar o seu pedido e informar os dados de entrega e forma de pagamento.',
+      },
+    ],
+  });
 
   const storeCart = useCartStore();
   const { items, totalPrice } = storeToRefs(storeCart);

@@ -5,6 +5,17 @@
   import SearchCakesByName from '@/components/SearchCakesByName.vue';
   import { ref } from 'vue';
 
+  import { useHead } from '@vueuse/head';
+  useHead({
+    title: 'Bolos & Bolos | Loja',
+    meta: [
+      {
+        name: `description`,
+        content: 'Menu de bolos da loja Bolos & Bolos. Veja a variedade de bolos que temos!',
+      },
+    ],
+  });
+
   const filterReset = ref('');
   const clearFilter = toClear => {
     filterReset.value = toClear;
