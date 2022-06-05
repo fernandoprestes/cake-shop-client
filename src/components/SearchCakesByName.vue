@@ -24,11 +24,18 @@
 
 <template>
   <div class="flex flex-wrap gap-2 rounded-lg bg-secondary py-2 px-2 sx:gap-4">
+    <label
+      for="search"
+      class="sr-only"
+    >
+      Digite o nome de um bolo...
+    </label>
     <input
+      id="search"
       v-model="search"
-      type="text"
       class="w-full rounded-lg px-2 py-2 sx:w-fit"
       placeholder="Digite o nome de um bolo..."
+      type="text"
     />
     <button
       class="w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-secondary hover:brightness-105 sx:w-fit"

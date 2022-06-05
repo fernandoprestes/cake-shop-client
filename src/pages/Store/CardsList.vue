@@ -26,13 +26,16 @@
       v-for="(cake, index) in cakes"
       :key="index"
       class="w-[194px] cursor-pointer select-none rounded-lg border border-secondary shadow md:w-48"
+      role="article"
+      tabindex="0"
       @click="openModal(cake.id)"
     >
       <div class="h-28">
         <img
           class="h-full w-full rounded-tr-lg rounded-tl-lg"
+          role="figure"
+          :alt="cake.name"
           :src="cake.imageUrl"
-          alt=""
         />
         <div class="relative">
           <div
