@@ -1,9 +1,9 @@
 <script setup>
-  import { onMounted, ref } from 'vue';
   import CardsModalDetails from './CardsModalDetails.vue';
   import formatCurrency from '@/composables/useFormatCurrency';
-  import { useCakesStore } from '../../store/cakes';
+  import { onMounted, ref } from 'vue';
   import { storeToRefs } from 'pinia';
+  import { useCakesStore } from '../../store/cakes';
 
   const store = useCakesStore();
   const { cakes } = storeToRefs(store);
@@ -25,7 +25,7 @@
     <div
       v-for="(cake, index) in cakes"
       :key="index"
-      class="w-[194px] cursor-pointer select-none rounded-lg border border-secondary hover:border-primary md:w-48"
+      class="w-[194px] cursor-pointer select-none rounded-lg border border-secondary shadow md:w-48"
       @click="openModal(cake.id)"
     >
       <div class="h-28">
@@ -36,14 +36,14 @@
         />
         <div class="relative">
           <div
-            class="absolute right-2 bottom-1 rounded-lg border border-secondary bg-accent px-2 text-sm capitalize ring-2 ring-accent"
+            class="absolute right-2 bottom-1 rounded-lg border border-secondary bg-secondary px-2 text-sm capitalize text-primary ring-2 ring-primary"
           >
             {{ cake.category }}
           </div>
         </div>
       </div>
 
-      <div class="rounded-br-lg rounded-bl-lg bg-accent px-4 py-2">
+      <div class="rounded-br-lg rounded-bl-lg bg-secondary px-4 py-2 text-primary">
         <h2>{{ cake.name }}</h2>
         <p class="truncate text-sm">
           {{ cake.description }}

@@ -1,8 +1,8 @@
 <script setup>
-  import { ref, toRef, watch } from 'vue';
   import useFetchCakes from '@/composables/useFetchCakes';
-  import { useCakesStore } from '@/store/cakes';
+  import { ref, toRef, watch } from 'vue';
   import { storeToRefs } from 'pinia';
+  import { useCakesStore } from '@/store/cakes';
 
   const { fetchAllCakesBy } = useFetchCakes();
 
@@ -47,14 +47,14 @@
   });
 </script>
 <template>
-  <h2 class="pb-4 text-center">Buscar por uma categoria:</h2>
+  <h2 class="pb-4 text-center text-primary">Buscar por uma categoria:</h2>
   <div class="flex gap-2 px-4 md:flex-col">
     <label
       v-for="(item, index) in filterOptions"
       :key="index"
       :for="item.label"
-      class="flex h-8 cursor-pointer items-center justify-center rounded-lg border-b-2 bg-accent px-1 text-sm capitalize leading-6 hover:brightness-105"
-      :class="{ ' border-b-4 border-primary font-bold': selectedOption === item.value }"
+      class="flex h-8 cursor-pointer items-center justify-center rounded-lg border-b-2 border-primary bg-primary px-1 text-sm capitalize leading-6 text-secondary hover:brightness-110"
+      :class="{ ' border-b-4 border-accent font-bold': selectedOption === item.value }"
     >
       <input
         :id="item.label"

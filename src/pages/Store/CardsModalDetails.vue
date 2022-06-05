@@ -1,9 +1,9 @@
 <script setup>
-  import { ref, toRef, watch } from 'vue';
-  import formatCurrency from '@/composables/useFormatCurrency';
   import Icon from '@/components/Icon/Icon.vue';
-  import { useCartStore } from '../../store/cart';
+  import formatCurrency from '@/composables/useFormatCurrency';
+  import { ref, toRef, watch } from 'vue';
   import { useCakesStore } from '../../store/cakes';
+  import { useCartStore } from '../../store/cart';
 
   const store = useCartStore();
   const storeCakes = useCakesStore();
@@ -64,7 +64,7 @@
             </div>
           </div>
           <button
-            class="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-white hover:brightness-105"
+            class="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-secondary hover:brightness-105"
             @click="handleClick"
           >
             Adicionar no carrinho

@@ -1,9 +1,9 @@
 <script setup>
+  import Icon from '../../components/Icon/Icon.vue';
   import formatCurrency from '@/composables/useFormatCurrency';
+  import { ref } from 'vue';
   import { storeToRefs } from 'pinia';
   import { useCartStore } from '../../store/cart';
-  import { ref } from 'vue';
-  import Icon from '../../components/Icon/Icon.vue';
   import { useHead } from '@vueuse/head';
 
   useHead({

@@ -1,7 +1,7 @@
 <script setup>
-  import { storeToRefs } from 'pinia';
-  import { ref } from 'vue';
   import useFetchCakes from '../composables/useFetchCakes';
+  import { ref } from 'vue';
+  import { storeToRefs } from 'pinia';
   import { useCakesStore } from '../store/cakes';
 
   const { fetchAllCakesBy } = useFetchCakes();
@@ -31,7 +31,7 @@
       placeholder="Digite o nome de um bolo..."
     />
     <button
-      class="w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-white hover:brightness-105 sx:w-fit"
+      class="w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-secondary hover:brightness-105 sx:w-fit"
       @click="handleSearchClick"
     >
       Buscar

@@ -4,8 +4,8 @@
   import HeaderStore from '@/components/HeaderStore.vue';
   import SearchCakesByName from '@/components/SearchCakesByName.vue';
   import { ref } from 'vue';
-
   import { useHead } from '@vueuse/head';
+
   useHead({
     title: 'Bolos & Bolos | Loja',
     meta: [
