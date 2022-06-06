@@ -120,7 +120,10 @@
         </label>
       </div>
       <div class="flex flex-col py-2">
-        <div v-if="deliveryType === 'retirada'">
+        <div
+          v-if="deliveryType === 'retirada'"
+          class="animate__animated animate__fadeIn"
+        >
           <p class="text-center text-primary">
             Você pode retirar o seu pedido em nossa loja que fica na rua Não existe, 7458, Bairro Muito longe, SP, entre
             o horario das 10:00 às 22:00.
@@ -129,7 +132,7 @@
 
         <div
           v-else
-          class="flex flex-wrap gap-2"
+          class="animate__animated animate__fadeIn flex flex-wrap gap-2"
         >
           <div class="flex w-full flex-col">
             <label for="address">Endereço</label>
@@ -239,7 +242,7 @@
         </div>
         <div
           v-if="paymentType === 'dinheiro'"
-          class="mt-4 flex flex-col"
+          class="animate__animated animate__fadeIn mt-4 flex flex-col"
         >
           <label for="thing">Troco para</label>
           <input
@@ -251,7 +254,7 @@
         </div>
         <div
           v-else
-          class="mt-4"
+          class="animate__animated animate__fadeIn mt-4"
         >
           <p class="text-center text-primary">Aceitamos cartão crédito ou débito</p>
 
