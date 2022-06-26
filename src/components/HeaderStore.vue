@@ -13,7 +13,9 @@
   const handleCardDialog = () => (openCardDialog.value = !openCardDialog.value);
 </script>
 <template>
-  <h1>Logos</h1>
+  <h2>
+    <router-link to="/"> Logos </router-link>
+  </h2>
   <button
     class="relative flex h-10 w-10 items-center justify-center rounded-full"
     @click="handleCardDialog"
