@@ -33,7 +33,7 @@
     <input
       id="search"
       v-model="search"
-      class="w-full rounded-lg px-2 py-2 sx:w-fit"
+      class="w-64 rounded-lg px-2 py-2"
       placeholder="Digite o nome de um bolo..."
       type="text"
     />
