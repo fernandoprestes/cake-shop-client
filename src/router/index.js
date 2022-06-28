@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 const Home = () => import('../pages/Home/index.vue');
 const Store = () => import('../pages/Store/index.vue');
 const Payment = () => import('../pages/Payment/index.vue');
+const Checkout = () => import('../pages/Checkout/index.vue');
 
 export const routes = [
   {
@@ -19,6 +20,11 @@ export const routes = [
     path: '/payment',
     name: 'Payment',
     component: Payment,
+  },
+  {
+    path: '/checkout',
+    name: 'Checkout',
+    component: Checkout,
   },
   {
     path: '/:pathMatch(.*)*',

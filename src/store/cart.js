@@ -32,6 +32,10 @@ export const useCartStore = defineStore('cart', {
       this.cartList = this.cartList.filter(item => item.id !== idd);
     },
 
+    removeAllFormCartList() {
+      this.cartList = [];
+    },
+
     incresseQuantity(idd) {
       const index = this.cartList.findIndex(item => item.id == idd);
       this.cartList[index].quantity += 1;
