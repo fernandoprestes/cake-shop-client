@@ -7,7 +7,7 @@
   import { useHead } from '@vueuse/head';
 
   useHead({
-    title: 'Bolos & Bolos | Pagamento',
+    title: 'BruBru Doces e Salgados | Pagamento',
     meta: [
       {
         name: `description`,
@@ -45,7 +45,16 @@
 <template>
   <header class="h-20">
     <div class="container flex h-full w-full items-center justify-center px-2 text-center">
-      <router-link to="/store">Logo da loja</router-link>
+      <router-link
+        to="/store"
+        class="flex items-center justify-center"
+      >
+        <img
+          src="./../../assets/img/cake-icon.png"
+          alt="Logo da Loja BruBru"
+          class="w-10"
+        />
+      </router-link>
     </div>
   </header>
   <main class="container flex w-full flex-col items-center justify-center gap-4 py-4 px-4 text-primary md:py-10">
@@ -266,12 +275,13 @@
         </div>
       </div>
       <div class="my-4 w-full border border-dashed border-secondary"></div>
-      <button
+      <router-link
+        to="checkout"
         class="my-2 flex w-fit items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-white"
       >
         Fazer o pedido
         <Icon name="DoneAll" />
-      </button>
+      </router-link>
     </div>
   </main>
 </template>

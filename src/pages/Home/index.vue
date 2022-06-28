@@ -2,11 +2,11 @@
   import { useHead } from '@vueuse/head';
 
   useHead({
-    title: 'Bolos & Bolos | Home',
+    title: 'BruBru Doces e Salgados | Home',
     meta: [
       {
         name: `description`,
-        content: 'Pagina inicial da loja Bolos & Bolos.',
+        content: 'Pagina inicial da loja BruBru Doces e Salgados.',
       },
     ],
   });
@@ -16,10 +16,12 @@
     <header class="h-20"></header>
     <div class="flex w-full flex-col items-center justify-center gap-4 py-4 px-4 sm:container">
       <div class="flex h-[40vh] w-full items-center md:h-[50vh]">
-        <h1 class="text-[96px]">
-          Lorem <br />
-          & ipsum
-        </h1>
+        <h1 class="sr-only">BruBru Doces e Salgados</h1>
+        <img
+          src="./../../assets/img/logo-brubru.png"
+          alt="Logo da loja BruBru"
+          class="w-96 md:w-[30rem]"
+        />
       </div>
       <div class="container">
         <div class="flex w-[440px] flex-wrap items-center gap-2 md:gap-4 lg:w-full">

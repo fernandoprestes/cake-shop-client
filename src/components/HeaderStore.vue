@@ -13,9 +13,16 @@
   const handleCardDialog = () => (openCardDialog.value = !openCardDialog.value);
 </script>
 <template>
-  <h2>
-    <router-link to="/"> Logos </router-link>
-  </h2>
+  <router-link
+    to="/"
+    class="flex items-center justify-center"
+  >
+    <img
+      src="./../assets/img/cake-icon.png"
+      alt="Logo da Loja BruBru"
+      class="w-10"
+    />
+  </router-link>
   <button
     class="relative flex h-10 w-10 items-center justify-center rounded-full"
     @click="handleCardDialog"

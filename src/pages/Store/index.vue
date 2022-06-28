@@ -7,11 +7,11 @@
   import { useHead } from '@vueuse/head';
 
   useHead({
-    title: 'Bolos & Bolos | Loja',
+    title: 'BruBru Doces e Salgados | Loja',
     meta: [
       {
         name: `description`,
-        content: 'Menu de bolos da loja Bolos & Bolos. Veja a variedade de bolos que temos!',
+        content: 'Menu de bolos da loja BruBru Doces e Salgados. Veja a variedade de bolos que temos!',
       },
     ],
   });
