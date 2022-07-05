@@ -1,5 +1,8 @@
 {
   "name": "cake-shop-client",
+  "author": "fernandoprestes",
+  "private": "true",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
